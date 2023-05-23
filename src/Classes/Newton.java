@@ -1,12 +1,16 @@
 package Classes;
-
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class Newton {
 
     Ecuacion ecuacionClass;
+    ArrayList<Object[]> datos ;
 
     public Newton(Ecuacion ecuacionesClass){
         this.ecuacionClass = ecuacionesClass;
+        this.datos = new ArrayList<>();
+
     }
 
     public double metodoNewton(double xnValue) {
@@ -14,6 +18,8 @@ public class Newton {
         double gxAux = 0;
         double n = 1;
         double error = 0;
+        DecimalFormat formato = new DecimalFormat("#.######");
+    
         
         while (true) {
             double fxn = Ecuacion.evaluarExpresion(this.ecuacionClass.ecuacion, xn);
@@ -22,14 +28,14 @@ public class Newton {
         
             if (n > 1) {
                 error = Math.abs(gxAux - gx);
-                if (error <= 0.0001) {
+                datos.add(new Object[]{formato.format(n), formato.format(xn), formato.format(fxn), formato.format(fxnDiff), formato.format(gx), formato.format(error) });
+                if (error <= 0.001) {
                     return gx;
                 }
             }
-        
             xn = gx;
             gxAux = xn;
-        
+            
             if (n > 1000) {
                 System.out.println("No se encuentra la Raiz");
                 return 0;

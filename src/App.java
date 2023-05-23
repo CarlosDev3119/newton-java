@@ -1,20 +1,17 @@
 
 
-import Classes.Ecuacion;
-import Classes.Newton;
+import Classes.Ventana1;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
+		Ventana1 ventana = new Ventana1();
+		ventana.setVisible(true);
 		
-		Ecuacion ecuacion = new Ecuacion("(x+3)^3-5x^2-5");
-		Newton procesoNewton = new Newton(ecuacion);
-		procesoNewton.metodoNewton(4);
+		// Ecuacion ecuacion = new Ecuacion("(x+3)^3-5x^2-5");
+		// Newton procesoNewton = new Newton(ecuacion);
+		// procesoNewton.metodoNewton(4);
 
-		System.out.println(procesoNewton.metodoNewton(0));
-		// ecuacion.obtenerDerivada();
-		// ecuacion.evaluarExpresion(ecuacion.ecuacion, 4.0);
-      
+		// System.out.println(procesoNewton.metodoNewton(0));
 
     }
 }
